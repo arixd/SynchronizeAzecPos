@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+	 
+<configuration>
+    <settings>
+        <setting name="lazyLoadingEnabled" value="false" />
+    </settings>
+
+    <!--    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="oracle.jdbc.OracleDriver"/>
+                <property name="url" value="jdbc:oracle:thin:@192.168.3.33:1521:ibox"/>
+                <property name="username" value="APPS"/>
+                <property name="password" value="RESTORE"/>
+            </dataSource>
+        </environment>
+    </environments>-->
+<!--        <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="oracle.jdbc.OracleDriver"/>
+                <property name="url" value="jdbc:oracle:thin:@192.168.100.12:2014:ERADOTCOM"/>
+                <property name="username" value="APPS"/>
+                <property name="password" value="APPS11G"/>
+            </dataSource>
+        </environment>
+    </environments>
+    -->
+    <!--toad   ajek2016-->
+    <!--devl-->
+    
+<!--    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="oracle.jdbc.OracleDriver"/>
+                <property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+                <property name="username" value="telkomsel"/>
+                <property name="password" value="posuser"/>
+            </dataSource>
+        </environment>
+    </environments>-->
+<!--    
+-->    
+    
+<!--    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="UNPOOLED">
+                <property name="driver" value="oracle.jdbc.OracleDriver"/>
+                <property name="url" value="jdbc:oracle:thin:@192.168.3.33:2016:devl"/>
+                <property name="username" value="APPS"/>
+                <property name="password" value="11GAPPS"/>
+            </dataSource>
+        </environment>
+    </environments>-->
+    
+    <!--TRAINING-->
+<!--    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="UNPOOLED">
+                <property name="driver" value="oracle.jdbc.OracleDriver"/>
+                <property name="url" value="jdbc:oracle:thin:@192.168.100.12:2016:ERAFONE"/>
+                <property name="username" value="APPS"/>
+                <property name="password" value="RESTORE"/>
+            </dataSource>
+        </environment>
+    </environments>
+    -->
+    
+    
+    <!--erafon-->
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="oracle.jdbc.OracleDriver"/>
+                <property name="url" value="jdbc:oracle:thin:@192.168.100.50:2016:erafone"/>
+                <property name="username" value="APPS"/>
+                <property name="password" value="AJEK2016APPS"/>
+            </dataSource>
+        </environment>
+    </environments>
+    
+    <!--ibox-->
+    <!--    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="oracle.jdbc.OracleDriver"/>
+                <property name="url" value="jdbc:oracle:thin:@192.168.100.50:2016:ibox"/>
+                <property name="username" value="APPS"/>
+                <property name="password" value="AJEK2016APPS"/>
+            </dataSource>
+        </environment>
+    </environments>-->
+
+
+    <mappers>
+        <mapper resource="id/my/berkah/utill/UtilMapper.xml"/>
+        <mapper resource="id/my/berkah/utill/AuthBURestore.xml"/>
+    </mappers>
+
+</configuration>

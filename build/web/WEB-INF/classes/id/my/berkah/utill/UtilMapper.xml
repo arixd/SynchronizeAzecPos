@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="POSDownload">
+
+    <select id="getListTableDownload" parameterType ="map" resultType="id.my.berkah.util.model.Qry">
+        SELECT TABLE_NAME as tableName, SQL_QUERY as sqlQry,KEY_FIELDS as keyFields, DML_TYPE as dmlType
+        FROM   QUERY_TABLE
+        WHERE  STATUS = 'DN'
+        AND    DAILY  = 'T'
+        AND    SYNC   = 'T'
+        AND    SETUP  = 'F' 
+    </select> 
+    <select id="downloadDataRecovery" parameterType ="map" resultType="id.my.berkah.util.model.Qry">
+        SELECT TABLE_NAME as tableName, SQL_QUERY as sqlQry,KEY_FIELDS as keyFields, DML_TYPE as dmlType
+        FROM   QUERY_TABLE
+        WHERE  status = 'DR' 
+        and sync='T'
+        and daily ='F'
+        and setup='F'
+    </select> 
+    <!--    <select id="getListTableDownload" parameterType ="map" resultType="id.my.berkah.util.model.Qry">
+        SELECT TABLE_NAME as tableName, SQL_QUERY as sqlQry,KEY_FIELDS as keyFields, DML_TYPE as dmlType
+        FROM   QUERY_TABLE
+        WHERE  STATUS = 'D'
+        AND    DAILY  = 'T'
+        AND    SYNC   = 'T'
+        AND    SETUP  = 'F'  
+    </select> -->
+    <!--    <select id="getListTableDownload" parameterType ="map" resultType="id.my.berkah.util.model.Qry">
+        SELECT TABLE_NAME as tableName, SQL_QUERY as sqlQry
+        FROM   QUERY_TABLE
+        WHERE  STATUS = 'D'
+        AND    DAILY  = 'T'
+        AND    SYNC   = 'T' AND TABLE_NAME='TCSTR001T_HRN_ITEM_LOG'
+    </select> -->
+    
+    <select id="downloadRecovery" parameterType="id.my.berkah.util.model.DownloadRecoveryModel" statementType="CALLABLE">
+        {call GetFilenameDMLRestoreUtlFull
+        (
+        #{InUserId, mode=IN, jdbcType=INTEGER},
+        #{InParamBu,    mode=IN, jdbcType=VARCHAR},
+        #{OutTempDMLGenerateId,   mode=OUT, jdbcType=INTEGER},
+        #{OutFilename,   mode=OUT, jdbcType=VARCHAR}
+        )
+        }
+    </select>
+    
+    
+    
+</mapper>
